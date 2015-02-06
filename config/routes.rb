@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
-  resources :vehicle_auto_auctions
+  resources :vehicle_auto_auctions 
 
   resources :vehicles
 
   resources :auctions
 
+  resources :csv_parser do
+    collection { post :import }
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

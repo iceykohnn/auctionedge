@@ -61,6 +61,11 @@ class AuctionsController < ApplicationController
     end
   end
 
+  def import
+    Auction.import(params[:file])
+    redirect_to root_url, notice: "File imported."
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_auction
