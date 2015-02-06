@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location name:</strong>
+  <%= @auction.location_name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @auction.address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @auction.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @auction.state %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @auction.zip %>
+</p>
+
+<%= link_to 'Edit', edit_auction_path(@auction) %> |
+<%= link_to 'Back', auctions_path %>

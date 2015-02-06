@@ -1,0 +1,33 @@
+<h1>Listing vehicle_auto_auctions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Auction</th>
+      <th>Vehicle</th>
+      <th>Winning bid</th>
+      <th>Seller payout</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vehicle_auto_auctions.each do |vehicle_auto_auction| %>
+      <tr>
+        <td><%= vehicle_auto_auction.auction_id %></td>
+        <td><%= vehicle_auto_auction.vehicle_id %></td>
+        <td><%= vehicle_auto_auction.winning_bid %></td>
+        <td><%= vehicle_auto_auction.seller_payout %></td>
+        <td><%= vehicle_auto_auction.description %></td>
+        <td><%= link_to 'Show', vehicle_auto_auction %></td>
+        <td><%= link_to 'Edit', edit_vehicle_auto_auction_path(vehicle_auto_auction) %></td>
+        <td><%= link_to 'Destroy', vehicle_auto_auction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vehicle auto auction', new_vehicle_auto_auction_path %>

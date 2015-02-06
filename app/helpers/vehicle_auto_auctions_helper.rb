@@ -1,0 +1,2 @@
+module VehicleAutoAuctionsHelper
+end

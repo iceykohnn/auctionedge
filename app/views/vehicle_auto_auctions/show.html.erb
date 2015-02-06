@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Auction:</strong>
+  <%= @vehicle_auto_auction.auction_id %>
+</p>
+
+<p>
+  <strong>Vehicle:</strong>
+  <%= @vehicle_auto_auction.vehicle_id %>
+</p>
+
+<p>
+  <strong>Winning bid:</strong>
+  <%= @vehicle_auto_auction.winning_bid %>
+</p>
+
+<p>
+  <strong>Seller payout:</strong>
+  <%= @vehicle_auto_auction.seller_payout %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @vehicle_auto_auction.description %>
+</p>
+
+<%= link_to 'Edit', edit_vehicle_auto_auction_path(@vehicle_auto_auction) %> |
+<%= link_to 'Back', vehicle_auto_auctions_path %>
