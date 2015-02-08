@@ -26,7 +26,7 @@
         <td><%= link_to 'Destroy', vehicle_auto_auction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-    
+
     <p>"Total Auction Profit: $<%= @vehicle_auto_auctions.total_profit  %>.00"</p>
     <p>"Average Auction Profit: $<%= @vehicle_auto_auctions.average_profit  %>.00"</p>
     <p>"Total Vehicles Sold: <%= @vehicle_auto_auctions.number_sold  %>"</p>

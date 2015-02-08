@@ -1,5 +1,6 @@
 class StagingsController < ApplicationController
   before_action :set_staging, only: [:show, :edit, :update, :destroy]
+  include StagingsHelper
 
   # GET /stagings
   # GET /stagings.json
@@ -63,6 +64,9 @@ class StagingsController < ApplicationController
 
   def import
     Staging.import(params[:file])
+    build_location
+    build_car
+    build_event
     redirect_to root_url, notice: "File imported."
   end
 
