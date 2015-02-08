@@ -37,7 +37,7 @@
 <br>
 
 <h2>Importing File</h2>
-<%= form_tag import_csv_parser_index_path, multipart: true do %>
+<%= form_tag import_stagings_path, multipart: true do %>
   <%= file_field_tag :file %>
   <%= submit_tag "Import" %>
 <% end %>

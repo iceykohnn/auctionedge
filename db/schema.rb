@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206153305) do
+ActiveRecord::Schema.define(version: 20150207211411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "auctions", force: true do |t|
-    t.string   "location_name"
+    t.string   "auction_name"
     t.string   "address"
     t.string   "city"
     t.string   "state"
@@ -26,7 +26,19 @@ ActiveRecord::Schema.define(version: 20150206153305) do
     t.datetime "updated_at"
   end
 
-  create_table "csvparsers", force: true do |t|
+  create_table "stagings", force: true do |t|
+    t.string   "auction_name"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.integer  "vehicle_year"
+    t.string   "vehicle_make"
+    t.string   "vehicle_model"
+    t.integer  "vehicle_stock_number"
+    t.integer  "winning_bid"
+    t.integer  "seller_payout"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -42,10 +54,10 @@ ActiveRecord::Schema.define(version: 20150206153305) do
   end
 
   create_table "vehicles", force: true do |t|
-    t.string   "make"
-    t.string   "year"
-    t.string   "model"
-    t.string   "stock_number"
+    t.string   "vehicle_make"
+    t.string   "vehicle_year"
+    t.string   "vehicle_model"
+    t.string   "vehicle_stock_number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

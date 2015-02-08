@@ -2,6 +2,8 @@ class VehicleAutoAuction < ActiveRecord::Base
 	belongs_to :auction
 	has_many :vehicles
 
+	include StagingsHelper
+	
 		def self.total_profit
 			array_winning_bids = VehicleAutoAuction.where.not(winning_bid:0).pluck(:winning_bid)
 			sum_winning_bids = array_winning_bids.inject{|sum,x| sum + x}
@@ -23,5 +25,6 @@ class VehicleAutoAuction < ActiveRecord::Base
 			(sum_winning_bids - sum_seller_payouts) / number_sold
 		end
 
+		
 		
 end

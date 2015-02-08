@@ -8,3 +8,4 @@
 auction = Auction.create(location_name: "Shack de Isaac", address: "3261 n bay ct", city: "Chicago", state: "IL", zip: "60618"  )
 event = VehicleAutoAuction.create(auction_id:1, vehicle_id:1, winning_bid:1500, seller_payout:1000, description:"It looks like a million bucks")
 car = Vehicle.create(make:"Toyota", year:"2009", model:"Camry", stock_number:"122333")
+

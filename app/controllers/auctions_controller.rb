@@ -27,7 +27,8 @@ class AuctionsController < ApplicationController
     @auction = Auction.new(auction_params)
 
     respond_to do |format|
-      if @auction.save
+      Auction.pull_from_hash(hash)
+      if @auction
         format.html { redirect_to @auction, notice: 'Auction was successfully created.' }
         format.json { render :show, status: :created, location: @auction }
       else
@@ -61,10 +62,7 @@ class AuctionsController < ApplicationController
     end
   end
 
-  def import
-    Auction.import(params[:file])
-    redirect_to root_url, notice: "File imported."
-  end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
