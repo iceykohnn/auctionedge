@@ -1,28 +1,29 @@
 module StagingsHelper
 	
-	@auction = Staging.where.not(winning_bid:0).pluck(:auction_name, :street_address, :city, :state, :zip).to_a
-	@vehicle = Staging.where.not(winning_bid:0).pluck(:vehicle_make, :vehicle_year, :vehicle_model, :vehicle_stock_number).to_a
-	@vehicle_auto_auction = Staging.where.not(winning_bid:0).pluck(:winning_bid, :seller_payout, :description).to_a
 	
-	def build_location(args)
-		@auction = args
-		@auction.each do |a,b,x,y,z|
-		Auction.create!(auction_name:a, street_address:b, city:x, state:y, zip:z)
+	def build_auction
+		@auction.each do |auction|
+		new_auc = auction
+		Auction.create!(auction_name:new_auc[0], street_address:new_auc[1], city:new_auc[2], state:new_auc[3], zip:new_auc[4])
 		end
 	end
 
-	def build_car(args)
-		@vehicle = args
-		@vehicle.each do |a,b,y,z|
-		Vehicle.create!(vehicle_make:a, vehicle_year:b, vehicle_model:y, vehicle_stock_number:z)
+	def build_vehicle
+		@vehicle.each do |vehicle|
+		new_veh = vehicle
+		Vehicle.create!(vehicle_make:new_veh[0], vehicle_year:new_veh[1], vehicle_model:new_veh[2], vehicle_stock_number:new_veh[3])
 		end
 	end
 
-	def build_event(args)
-		@vehicle_auto_auction = args
-		@vehicle_auto_auction.each do |a,b,x,y,z|
-		VehicleAutoAuction.create!(winning_bid:x, seller_payout:y, description:z)
+	def build_vehicle_auto_auction
+		auction = Auction.find(params[:id])
+		vehicle = Vehicle.find(params[:id])
+		@vehicle_auto_auction.each do |event|
+		new_event = event
+		VehicleAutoAuction.create!(auction_id:auction.id, vehicle_id:vehicle.id, winning_bid:new_event[0], seller_payout:new_event[1], description:new_event[2])
 		end
 	end
 
 end
+
+

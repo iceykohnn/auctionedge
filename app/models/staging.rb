@@ -1,6 +1,6 @@
 class Staging < ActiveRecord::Base
-	has_many :auctions
-	has_many :vehicle_auto_auctions, through: :auctions
+	#has_many :auctions
+	#has_many :vehicle_auto_auctions, through: :auctions
 
 	def self.import(file)
 		CSV.foreach(file.path, headers: true) do |row|

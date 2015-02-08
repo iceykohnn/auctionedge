@@ -64,9 +64,12 @@ class StagingsController < ApplicationController
 
   def import
     Staging.import(params[:file])
-    build_location
-    build_car
-    build_event
+      @auction = Staging.all.pluck(:auction_name, :street_address, :city, :state, :zip)
+      @vehicle = Staging.all.pluck(:vehicle_make, :vehicle_year, :vehicle_model, :vehicle_stock_number)
+      @vehicle_auto_auction = Staging.all.pluck(:winning_bid, :seller_payout, :description)
+    build_auction
+    build_vehicle
+    build_vehicle_auto_auction
     redirect_to root_url, notice: "File imported."
   end
 

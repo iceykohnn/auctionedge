@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20150207211411) do
 
   create_table "auctions", force: true do |t|
     t.string   "auction_name"
-    t.string   "address"
+    t.string   "street_address"
     t.string   "city"
     t.string   "state"
     t.string   "zip"

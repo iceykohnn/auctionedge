@@ -24,10 +24,9 @@ class AuctionsController < ApplicationController
   # POST /auctions
   # POST /auctions.json
   def create
-    @auction = Auction.new(auction_params)
-
+    #@auction = Auction.new(auction_params)
+    build_location(auction_params)
     respond_to do |format|
-      Auction.pull_from_hash(hash)
       if @auction
         format.html { redirect_to @auction, notice: 'Auction was successfully created.' }
         format.json { render :show, status: :created, location: @auction }
@@ -72,6 +71,6 @@ class AuctionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def auction_params
-      params.require(:auction).permit(:location_name, :address, :city, :state, :zip)
+      params.require(:auction).permit(:auction_name, :street_address, :city, :state, :zip)
     end
 end
