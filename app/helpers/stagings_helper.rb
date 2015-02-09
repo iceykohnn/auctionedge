@@ -16,13 +16,19 @@ module StagingsHelper
 	end
 
 	def build_vehicle_auto_auction
-		auction = Auction.find(params[:id])
-		vehicle = Vehicle.find(params[:id])
+
 		@vehicle_auto_auction.each do |event|
 		new_event = event
-		VehicleAutoAuction.create!(auction_id:auction.id, vehicle_id:vehicle.id, winning_bid:new_event[0], seller_payout:new_event[1], description:new_event[2])
+		VehicleAutoAuction.create!(winning_bid:new_event[0], seller_payout:new_event[1], description:new_event[2])
 		end
 	end
+
+	# def build_objects
+	# 	@stages = Staging.all
+
+	# 	for @stages.each do |stage|
+	# 		VehicleAutoAuction.find_or_create_by(auction_name:)
+	# end
 
 end
 

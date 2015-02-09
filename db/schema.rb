@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150207211411) do
   end
 
   create_table "vehicle_auto_auctions", force: true do |t|
+    t.string   "auction_name"
     t.integer  "auction_id"
     t.integer  "vehicle_id"
     t.integer  "winning_bid"
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 20150207211411) do
   end
 
   create_table "vehicles", force: true do |t|
+    t.integer  "vehicle_auto_auction_id"
     t.string   "vehicle_make"
     t.string   "vehicle_year"
     t.string   "vehicle_model"

@@ -1,6 +1,7 @@
 class CreateVehicleAutoAuctions < ActiveRecord::Migration
   def change
     create_table :vehicle_auto_auctions do |t|
+      t.string :auction_name
       t.integer :auction_id
       t.integer :vehicle_id
       t.integer :winning_bid

@@ -12,7 +12,7 @@
   <tbody>
     <% @auctions.each do |auction| %>
       <tr>
-        <td><%= auction.location_name %></td>
+        <td><%= auction.auction_name %></td>
         <td><%= auction.city %></td>
         <td><%= link_to 'Show', auction %></td>
         <td><%= link_to 'Edit', edit_auction_path(auction) %></td>

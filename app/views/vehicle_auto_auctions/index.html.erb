@@ -3,7 +3,8 @@
 <table>
   <thead>
     <tr>
-      <th>Auction</th>
+      <th>Auction Id</th>
+      <th>Auction Name</th>
       <th>Vehicle</th>
       <th>Winning bid</th>
       <th>Seller payout</th>
@@ -16,6 +17,7 @@
     <% @vehicle_auto_auctions.each do |vehicle_auto_auction| %>
       <tr>
         <td><%= vehicle_auto_auction.auction_id %></td>
+        <td><%= vehicle_auto_auction.auction_name %></td>
         <td><%= vehicle_auto_auction.vehicle_id %></td>
         <td><%= vehicle_auto_auction.winning_bid %></td>
         <td><%= vehicle_auto_auction.seller_payout %></td>
